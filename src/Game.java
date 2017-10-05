@@ -15,22 +15,25 @@ public class Game {
         terminal.enterPrivateMode();
         this.gameBoard = new GameBoard();
         this.render = new Render(terminal,gameBoard);
-        this.input = new Input(terminal);
+        this.input = new Input(terminal, gameBoard);
     }
 
     public void run()throws InterruptedException{
 
 
         while(true){
+
             gameBoard.update();
+            if (!gameBoard.player.isAlive()){
+                terminal.clearScreen();
+                break;
+            }
             render.draw();
             input.keyInput();
-
-            //Wait for a key to be pressed
-//            Key key=terminal.readInput();
-//            keyHandler(key);
+            terminal.clearScreen();
 
         }
+        System.exit(0);
     }
 
 //    private void keyHandler(Key key)throws InterruptedException{

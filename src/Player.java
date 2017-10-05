@@ -17,16 +17,32 @@ public class Player {
         return xpos;
     }
 
-    public void setXpos(int xpos) {
-        this.xpos = xpos;
+    public void setXpos(int arrowRightLeft) {
+        if (xpos==0){
+            if ( arrowRightLeft> 0){
+                this.xpos += arrowRightLeft;
+            }
+        }  else if (xpos == GameBoard.WIDTH-1){
+            if (arrowRightLeft < 0){
+                this.xpos += arrowRightLeft;
+            }
+        } else this.xpos += arrowRightLeft;
     }
 
     public int getYpos() {
         return ypos;
     }
 
-    public void setYpos(int ypos) {
-        this.ypos = ypos;
+    public void setYpos(int arrowDownUpp) {
+        if (ypos==0){
+            if (arrowDownUpp > 0){
+                this.ypos += arrowDownUpp;
+            }
+        }  else if (ypos == GameBoard.HEIGHT-1){
+            if (arrowDownUpp < 0){
+                this.ypos += arrowDownUpp;
+            }
+        } else this.ypos += arrowDownUpp;
     }
 
     public boolean isAlive() {

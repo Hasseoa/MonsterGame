@@ -4,13 +4,15 @@ import com.googlecode.lanterna.terminal.Terminal;
 import java.nio.charset.Charset;
 
 public class Input {
-    
+
     Key key;
     Terminal terminal;
+    GameBoard gameBoard;
 
-    public Input(Terminal terminal){
+    public Input(Terminal terminal, GameBoard gameBoard){
         Key key = terminal.readInput();
         this.terminal = terminal;
+        this.gameBoard = gameBoard;
     }
 
     public void keyInput()throws InterruptedException{
@@ -18,19 +20,23 @@ public class Input {
             Thread.sleep(5);
             key=terminal.readInput();
 
-            switch(key.getKind())
-            {
-                case ArrowDown:
-                    break;
-                case ArrowUp:
-                    break;
-                case ArrowLeft:
-                    break;
-                case ArrowRight:
-                    break;
-            }
-
         }while(key == null);
+
+        switch(key.getKind())
+        {
+            case ArrowDown:
+                gameBoard.player.setYpos(1);
+                break;
+            case ArrowUp:
+                gameBoard.player.setYpos(-1);
+                break;
+            case ArrowLeft:
+                gameBoard.player.setXpos(-1);
+                break;
+            case ArrowRight:
+                gameBoard.player.setXpos(1);
+                break;
+        }
         System.out.println(key.getCharacter()+ " " + key.getKind());
 
 

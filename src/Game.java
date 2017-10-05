@@ -40,6 +40,7 @@ public class Game {
             }
             render.gameOver(count);
             terminal.exitPrivateMode();
+            count = 0;
     }
 
 }

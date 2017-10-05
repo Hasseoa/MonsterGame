@@ -24,15 +24,15 @@ public class Render {
                 if (gameBoard.gameboard[x][y] == 0) {
                     terminal.putCharacter(' ');
                 } else if (gameBoard.gameboard[x][y] == 1) { //Player
-                    terminal.putCharacter('X');
+                    terminal.putCharacter('\u263A');
                 } else if (gameBoard.gameboard[x][y] == 2) {
-                    terminal.putCharacter('O');
-                } else if (gameBoard.gameboard[x][y] == 3) {
                     terminal.putCharacter('\u265E');
+                } else if (gameBoard.gameboard[x][y] == 3) {
+                    terminal.putCharacter('\u2665');
                 } else if (gameBoard.gameboard[x][y] == 4) {
-                    terminal.putCharacter('S');
+                    terminal.putCharacter('\u2665');
                 } else if (gameBoard.gameboard[x][y] == 5) {
-                    terminal.putCharacter('T');
+                    terminal.putCharacter('\u2665');
 
 
                 }
@@ -51,10 +51,10 @@ public class Render {
 
         terminalPrint("             Monsterhug 2D              ",
                 "   by: Christian, Hans, John, Mathias   ",terminal,8);
-        Thread.sleep(6000);
+        Thread.sleep(5000);
     }
 
-    public void gameOver (int count){
+    public void gameOver (int count)throws InterruptedException{
         terminal.applyBackgroundColor(255,0,0);
         for (int x = 0; x < GameBoard.WIDTH; x++) {
             for (int y = 0; y < GameBoard.HEIGHT; y++) {
@@ -64,6 +64,7 @@ public class Render {
 
         }
         terminalPrint("            Game Over","            Number of steps: "+Integer.toString(count),terminal,8);
+        Thread.sleep(5000);
 
     }
 

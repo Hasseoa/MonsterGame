@@ -39,7 +39,7 @@ public class Monster {
     }
 
     public void setSpeed(double speed) {
-        this.speed = speed;
+        this.speed += speed;
     }
 
     public int getXpos() {
@@ -83,4 +83,9 @@ public void moveMonster(Player player) {
         setXpos((int)getDxpos());
         setYpos((int)getDypos());
     }
+    public void changeSpeed(int count) {
+        if (count%20==0)
+            setSpeed(0.05);
+    }
+
 }

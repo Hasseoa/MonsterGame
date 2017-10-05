@@ -15,10 +15,10 @@ public class GameBoard {
     public GameBoard(){
         this.gameboard = new int[WIDTH][HEIGHT];
         player = new Player(20,10,true,'X');
-        monster1 = new Monster(10, 10, 0.7);
+        monster1 = new Monster(10, 10, 0.3);
         monster2 = new  Monster(30,10,0.5);
         monster3 = new Monster(15, 15, 0.4);
-        monster4 = new  Monster(10,8,0.2);
+        monster4 = new  Monster(10,8,0.6);
 
 
     }
@@ -35,6 +35,7 @@ public class GameBoard {
         monster2.moveMonster(player);
         monster3.moveMonster(player);
         monster4.moveMonster(player);
+        monster1.changeSpeed(Game.count);
 
 
         if (player.getXpos()==monster1.getXpos() && player.getYpos()==monster1.getYpos()) {

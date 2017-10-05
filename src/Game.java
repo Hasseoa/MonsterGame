@@ -19,7 +19,7 @@ public class Game {
     }
 
     public void run()throws InterruptedException{
-
+        int count = 0;
 
         while(true){
 
@@ -31,9 +31,10 @@ public class Game {
             render.draw();
             input.keyInput();
             terminal.clearScreen();
-
+            count++;
         }
-        System.exit(0);
+        render.gameOver(count);
+        //System.exit(0);
     }
 
 //    private void keyHandler(Key key)throws InterruptedException{

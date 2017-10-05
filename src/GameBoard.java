@@ -19,8 +19,6 @@ public class GameBoard {
         monster2 = new  Monster(30,10,0.5);
         monster3 = new Monster(15, 15, 0.4);
         monster4 = new  Monster(10,8,0.6);
-
-
     }
 
     public void update(){
@@ -35,7 +33,7 @@ public class GameBoard {
         monster2.moveMonster(player);
         monster3.moveMonster(player);
         monster4.moveMonster(player);
-        monster1.changeSpeed(Game.count);
+        monster1.changeSpeed(Game.count);//monster 1 bli snabbare med tiden!
 
 
         if (player.getXpos()==monster1.getXpos() && player.getYpos()==monster1.getYpos()) {
@@ -59,10 +57,7 @@ public class GameBoard {
         gameboard[monster2.getXpos()][monster2.getYpos()] =3;
         gameboard[monster3.getXpos()][monster3.getYpos()] =4;
         gameboard[monster4.getXpos()][monster4.getYpos()] =5;
-
         }
-
-
     }
 
 

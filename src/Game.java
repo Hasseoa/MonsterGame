@@ -24,7 +24,6 @@ public class Game {
     }
 
     public void run()throws InterruptedException{
-        //int count = 0;
 
             render.startScreen();
             while(true){
@@ -41,7 +40,6 @@ public class Game {
             }
             render.gameOver(count);
             terminal.exitPrivateMode();
-            //System.exit(0);
     }
 
 }

@@ -33,8 +33,6 @@ public class Render {
                     terminal.putCharacter('\u2665');
                 } else if (gameBoard.gameboard[x][y] == 5) {
                     terminal.putCharacter('\u2665');
-
-
                 }
             }
         }
@@ -55,16 +53,29 @@ public class Render {
     }
 
     public void gameOver (int count)throws InterruptedException{
-        terminal.applyBackgroundColor(255,0,0);
-        for (int x = 0; x < GameBoard.WIDTH; x++) {
-            for (int y = 0; y < GameBoard.HEIGHT; y++) {
-                terminal.moveCursor(x,y);
-                terminal.putCharacter(' ');
+        boolean colorchange = true;
+        for (int i = 0; i < 10 ; i++) {
+            if(colorchange){
+                terminal.applyBackgroundColor(255,0,0);
             }
+            else{
+                terminal.applyBackgroundColor(100,0,0);
+
+            }
+            for (int x = 0; x < GameBoard.WIDTH; x++) {
+                for (int y = 0; y < GameBoard.HEIGHT; y++) {
+                    terminal.moveCursor(x,y);
+                    terminal.putCharacter(' ');
+                }
+            }
+                terminalPrint("            Game Over","            Number of steps: "+Integer.toString(count),terminal,8);
+                Thread.sleep(500);
+                colorchange = !colorchange;
+
 
         }
-        terminalPrint("            Game Over","            Number of steps: "+Integer.toString(count),terminal,8);
-        Thread.sleep(5000);
+
+
 
     }
 

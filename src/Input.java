@@ -10,7 +10,6 @@ public class Input {
     GameBoard gameBoard;
 
     public Input(Terminal terminal, GameBoard gameBoard){
-        Key key = terminal.readInput();
         this.terminal = terminal;
         this.gameBoard = gameBoard;
     }
@@ -37,7 +36,6 @@ public class Input {
                 gameBoard.player.setXpos(1);
                 break;
         }
-        //System.out.println(key.getCharacter()+ " " + key.getKind());
 
     }
 

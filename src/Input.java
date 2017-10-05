@@ -37,11 +37,7 @@ public class Input {
                 gameBoard.player.setXpos(1);
                 break;
         }
-        System.out.println(key.getCharacter()+ " " + key.getKind());
-
-
-
-
+        //System.out.println(key.getCharacter()+ " " + key.getKind());
 
     }
 

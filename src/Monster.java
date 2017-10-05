@@ -59,24 +59,7 @@ public class Monster {
     }
     //endregion
 
-//    public void moveMonster(Player player) {
-//        int xDiff = player.getXpos()-xpos;
-//        int yDiff = player.getYpos()-ypos;
-//
-//        if (xDiff>0){
-//            setXpos(1);
-//        }
-//        else if (xDiff<0){
-//            setXpos(-1);
-//        }
-//
-//        if (yDiff>0){
-//            setYpos(1);
-//        }
-//        else if (yDiff<0){
-//            setYpos(-1);
-//        }
-//    }
+
 public void moveMonster(Player player) {
         int xDiff = player.getXpos()-xpos;
         int yDiff = player.getYpos()-ypos;
@@ -99,9 +82,5 @@ public void moveMonster(Player player) {
     private void toInteger(){
         setXpos((int)getDxpos());
         setYpos((int)getDypos());
-        System.out.println(getDxpos());
-        System.out.println(getDypos());
-        System.out.println(ypos);
-        System.out.println(xpos);
     }
 }

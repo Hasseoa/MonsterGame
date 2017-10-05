@@ -21,6 +21,7 @@ public class Game {
     public void run()throws InterruptedException{
         int count = 0;
 
+        render.startScreen();
         while(true){
 
             gameBoard.update();
@@ -37,27 +38,6 @@ public class Game {
         //System.exit(0);
     }
 
-//    private void keyHandler(Key key)throws InterruptedException{
-//        do{
-//            Thread.sleep(5);
-//
-//            key =terminal.readInput();
-//        }
-//        while(key == null);
-//        System.out.println(key.getCharacter()+ " " + key.getKind());
-//
-//        switch(key.getKind())
-//        {
-//            case ArrowDown:
-//                break;
-//            case ArrowUp:
-//                break;
-//            case ArrowLeft:
-//                break;
-//            case ArrowRight:
-//                break;
-//        }
-//    }
 }
 
 

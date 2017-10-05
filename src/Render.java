@@ -3,6 +3,7 @@ import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.input.Key;
 import com.googlecode.lanterna.terminal.Terminal;
 import java.nio.charset.Charset;
+import java.text.Format;
 
 public class Render {
     Terminal terminal;
@@ -38,6 +39,21 @@ public class Render {
             }
         }
     }
+
+    public void startScreen()throws InterruptedException{
+        terminal.applyBackgroundColor(20,150,150);
+        for (int x = 0; x < GameBoard.WIDTH ; x++) {
+            for (int y = 0; y < GameBoard.HEIGHT; y++) {
+                terminal.moveCursor(x,y);
+                terminal.putCharacter('*');
+            }
+        }
+
+        terminalPrint("             Monsterhug 2D              ",
+                "   by: Christian, Hans, John, Mathias   ",terminal,8);
+        Thread.sleep(6000);
+    }
+
     public void gameOver (int count){
         terminal.applyBackgroundColor(255,0,0);
         for (int x = 0; x < GameBoard.WIDTH; x++) {

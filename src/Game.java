@@ -5,24 +5,55 @@ import java.nio.charset.Charset;
 
 public class Game {
     Terminal terminal;
+    GameBoard gameBoard;
+    Render render;
+    Input input;
 
-    public Game()throws InterruptedException{
+
+    public Game(){
         this.terminal = TerminalFacade.createTerminal(System.in,System.out, Charset.forName("UTF8"));
         terminal.enterPrivateMode();
+        this.gameBoard = new GameBoard();
+        this.render = new Render(terminal,gameBoard);
+        this.input = new Input(terminal);
     }
 
+    public void run()throws InterruptedException{
 
 
-    while(true){
-    //Wait for a key to be pressed
-        Key key;
-        do{
-            Thread.sleep(5);
-            key =terminal.readInput();
+        while(true){
+            gameBoard.update();
+            render.draw();
+            input.keyInput();
+
+            //Wait for a key to be pressed
+//            Key key=terminal.readInput();
+//            keyHandler(key);
+
         }
-        while(key == null);
-        System.out.println(key.getCharacter()+ " " + key.getKind());
     }
+
+//    private void keyHandler(Key key)throws InterruptedException{
+//        do{
+//            Thread.sleep(5);
+//
+//            key =terminal.readInput();
+//        }
+//        while(key == null);
+//        System.out.println(key.getCharacter()+ " " + key.getKind());
+//
+//        switch(key.getKind())
+//        {
+//            case ArrowDown:
+//                break;
+//            case ArrowUp:
+//                break;
+//            case ArrowLeft:
+//                break;
+//            case ArrowRight:
+//                break;
+//        }
+//    }
 }
 
 
